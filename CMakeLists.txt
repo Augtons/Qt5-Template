@@ -6,6 +6,11 @@ set(EXECUTABLE_NAME "HelloWorld")
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
+set(QT_COMPONENTS Core Gui Widgets)
+set(OTHER_LIBS)
+
+set(QT_PROJECT_LOCALES "zh_CN" "en_US")
+
 project("${QT_PROJECT_NAME}")
 
 file(GLOB_RECURSE MODULES "CMake/*.cmake")
