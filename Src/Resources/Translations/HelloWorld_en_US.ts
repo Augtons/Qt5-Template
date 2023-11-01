@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../../Main/mainwindow.ui" line="27"/>
-        <source>关于Qt</source>
+        <source>About Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21,6 +21,11 @@
     <message>
         <location filename="../../Main/mainwindow.ui" line="58"/>
         <source>Hello World, 0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Main/mainwindow.cpp" line="18"/>
+        <source>Hello World, %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

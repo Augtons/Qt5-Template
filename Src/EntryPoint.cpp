@@ -30,6 +30,7 @@ int main(int argc, char* argv[]) {
 
     // 运行主窗口
     MainWindow mv;
+    mv.setWindowIcon(QIcon(":/Qt_48x48.ico"));
     mv.show();
 
     return QApplication::exec();

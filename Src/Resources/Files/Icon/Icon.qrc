@@ -1,0 +1,9 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/">
+        <file>Qt_32x32.ico</file>
+        <file>Qt_48x48.ico</file>
+        <file>Qt_64x64.ico</file>
+        <file>Qt_128x128.ico</file>
+        <file>Qt_256x256.ico</file>
+    </qresource>
+</RCC>

@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->helloBtn, &QPushButton::clicked, this, [this] {
         static uint32_t count = 0;
-        ui->helloLabel->setText(QString("Hello World, %1").arg(++count));
+        ui->helloLabel->setText(tr("Hello World, %1").arg(++count));
     });
 }
 
