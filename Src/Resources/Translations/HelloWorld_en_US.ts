@@ -4,8 +4,23 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../Main/mainwindow.ui" line="16"/>
+        <location filename="../../Main/mainwindow.ui" line="14"/>
         <source>MainWindow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Main/mainwindow.ui" line="27"/>
+        <source>关于Qt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Main/mainwindow.ui" line="40"/>
+        <source>Hello World</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Main/mainwindow.ui" line="58"/>
+        <source>Hello World, 0</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

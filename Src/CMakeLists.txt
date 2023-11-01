@@ -63,7 +63,6 @@ endif()
 target_link_libraries(${PROJECT_NAME} PUBLIC MainLibrary)
 
 # TODO 自动化测试
-# if(ENABLE_TEST)
-#     下载 GoogleTest 依赖
-#     add_subdirectory(TEST_DIR)
-# endif()
+if(ENABLE_TEST)
+    add_subdirectory(${TEST_DIR})
+endif()

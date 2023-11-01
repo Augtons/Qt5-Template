@@ -11,6 +11,8 @@ set(OTHER_LIBS)
 
 set(QT_PROJECT_LOCALES "zh_CN" "en_US")
 
+option(ENABLE_TEST "Enable Unit Test" OFF)
+
 project("${QT_PROJECT_NAME}")
 
 file(GLOB_RECURSE MODULES "CMake/*.cmake")

@@ -68,6 +68,13 @@ set(OTHER_LIBS OpenSSL)
 
 `qrc` 文件中所有 `file` 字段的路径，既支持以 `qrc` 文件的相对路径填写，也支持以对应文件绝对路径填写。
 
+Qt 的资源文件有两种方式，一种是集成到代码里，另一种是生成独立的二进制文件。
+前者适用于较小的文件，**后者适用于较大的文件**。
+
+在本工程里，你可以指定 `*.qrc` 和 `*.big.qrc` **两种格式**的 `qrc`，本项目的 CMake 会分别扫描，并分别按两种方式编译资源。
+
+**对于大文件，推荐使用 `*.big.qrc`！**
+
 > 你也可以修改 `/Src/CMakeLists.txt` 的 `set` 来更改规定的资源文件扫描目录
 
 ## 3、【可选】使用 Qt 语言家进行本地化
@@ -87,8 +94,23 @@ set(QT_PROJECT_LOCALES "zh_CN" "en_US")
 
 # 二、自动化测试 (Google Test)
 ## 1、启用单元测试
+在工程根目录的 `/CMakeLists.txt`
+```cmake
+option(ENABLE_TEST "Enable Unit Test" OFF)
+```
+然后设置 Google Test 的仓库和版本
+在工程根目录的 `/Src/Test/CMakeLists.txt`
+
+```cmake
+set(GOOGLE_TEST_REPO "https://github.com/google/googletest.git")
+set(GOOGLE_TEST_VERSION "v1.14.0")
+```
 
 ## 2、编写单元测试
-按照本项目规范，程序本体的源文件应该在 `/Src/Test` 及其子目录下。
+按照本项目规范，程序本体的源文件应该在 `/Src/Test` 及其子目录下。构建系统会自动扫描。
 
 ## 3、运行单元测试
+使用支持 CMake 单元测试的 IDE 运行单元测试 (如 CLion, QtCreator)
+
+或直接构建 `<可执行文件名>_Test` 这个 Target，
+然后直接运行测试对应的可执行文件，或通过 Google Test 的 filter 指定运行的测试。
