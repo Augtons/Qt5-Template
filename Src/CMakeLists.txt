@@ -32,8 +32,15 @@ add_custom_target(UpdateTranslation ALL DEPENDS ${QM_FILES})
 
 # 解析 *.qrc 资源文件
 file(GLOB_RECURSE QRC_FILES "${QRC_DIR}/*.qrc")
-file(GLOB_RECURSE BIG_QRC_FILES "${QRC_DIR}/*.big.qrc")
-qt5_add_resources(RESOURCES_FILES ${QRC_FILES})
+foreach(item IN LISTS QRC_FILES)
+    get_filename_component(ext_name ${item} EXT)
+    if(ext_name MATCHES ".*\\.big\\.qrc$")
+        list(APPEND BIG_QRC_FILES ${item})
+    else()
+        list(APPEND SMALL_QRC_FILES ${item})
+    endif()
+endforeach()
+qt5_add_resources(RESOURCES_FILES ${SMALL_QRC_FILES})
 qt5_add_big_resources(BIG_RESOURCES_FILE ${BIG_QRC_FILES})
 
 # Target: 主程序
