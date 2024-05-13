@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
     // 设置 Translator 对象
     QTranslator translator;
     translator.load(defaultLocale, LOCALE_PREFIX, "_", "./");
-    app.installTranslator(&translator);
+    QApplication::installTranslator(&translator);
 
     // 运行主窗口
     MainWindow mv;
