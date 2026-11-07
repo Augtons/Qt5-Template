@@ -11,6 +11,7 @@
   - [1、基本](#1基本)
   - [2、【可选】添加资源文件](#2可选添加资源文件)
   - [3、【可选】使用 Qt 语言家进行本地化](#3可选使用-qt-语言家进行本地化)
+  - [4、【可选】添加三方库](#4可选添加三方库)
 - [二、自动化测试](#二自动化测试-google-test)
   - [1、启用单元测试](#1启用单元测试)
   - [2、编写单元测试](#2编写单元测试)
@@ -91,6 +92,22 @@ set(QT_PROJECT_LOCALES "zh_CN" "en_US")
 可用 Qt 语言家 (`Linguist`) 软件进行编辑。
 
 你可使用本项目自动生成的名为 `UpdateTranslation` 的 CMake Target 进行更新翻译。
+
+## 4、【可选】添加三方库
+
+本模板默认在根目录下提供 `Dependencies` 文件夹，用于集中管理第三方依赖库。
+
+**1. 放置依赖库**
+将第三方库的源码、CMakeLists.txt 或预编译文件放入 `/Dependencies` 目录下的独立子文件夹中。例如 `/Dependencies/mylib/`。
+
+**2. 声明与链接**
+在工程根目录的 `/CMakeLists.txt` 中，找到 `set(OTHER_LIBS ...)` 并填入你需要链接的 CMake Target 名称。
+构建系统会自动处理链接。请确保填写的名称是 CMake 最终导出的 Target（如 `OpenSSL::SSL`、`nlohmann_json::nlohmann_json`）。
+
+**3. 集成方式**
+
+- **FetchContent 自动下载**：在根目录 CMakeLists.txt 或配置文件中添加 `FetchContent` 代码，CMake 会自动下载并编译，之后直接将其 Target 名填入 `OTHER_LIBS`。
+- **本地源码集成**：使用 `add_subdirectory(${CMAKE_SOURCE_DIR}/Dependencies/<库文件夹>)` 引入本地库，然后链接对应 Target。
 
 # 二、自动化测试 (Google Test)
 ## 1、启用单元测试
